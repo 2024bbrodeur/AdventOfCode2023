@@ -21,4 +21,27 @@ public class Input {
         return lines;
     }
 
+    public static ArrayList<String> tokenize(String input, String[] splitPoints) {
+        ArrayList<String> tokens = new ArrayList<>();
+        int lastSplitPoint = 0;
+
+        for(int i = 0; i < input.length(); i++) {
+            for(String splitPoint : splitPoints) {
+                if(input.substring(i, splitPoint.length() + i).equals(splitPoint)) {
+                    if(i != lastSplitPoint) {
+                        tokens.add(input.substring(lastSplitPoint, i));
+                    }
+                    lastSplitPoint = i+1;
+                }
+            }
+            if(i == input.length()-1) {
+                if(i != lastSplitPoint-1) {
+                    tokens.add(input.substring(lastSplitPoint));
+                }
+            }
+        }
+
+        return tokens;
+    }
+
 }
