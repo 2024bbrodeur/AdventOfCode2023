@@ -44,4 +44,16 @@ public class Input {
         return tokens;
     }
 
+    public static char[][] get2DArray(File file) {
+        ArrayList<String> lines = getLines(file);
+        char[][] arr = new char[lines.size()][lines.get(0).length()];
+
+        for(int i = 0; i < lines.size(); i++) {
+            for(int j = 0; j < lines.get(i).length(); j++) {
+                arr[i][j] = lines.get(i).charAt(j);
+            }
+        }
+        return arr;
+    }
+
 }
