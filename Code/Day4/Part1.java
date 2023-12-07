@@ -8,11 +8,13 @@ import Code.Input;
 public class Part1 {
     
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         ArrayList<String> lines = Input.getLines(new File("Code/Day4/input.txt"));
         ArrayList<Card> cards = createCards(lines);
         int pointSum = pointSumOfCards(cards);
 
         System.out.println(pointSum);
+        System.out.println("Time Taken: " + ((System.currentTimeMillis() - startTime)/1000.));
     }
 
     public static int pointSumOfCards(ArrayList<Card> cards) {
